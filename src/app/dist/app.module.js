@@ -17,6 +17,8 @@ var shopping_list_edit_component_1 = require("./shopping-list/shopping-list-edit
 var recipe_detail_component_1 = require("./recipes/recipe-list/recipe-detail/recipe-detail.component");
 var header_component_1 = require("./header/header.component");
 var recipes_component_1 = require("./recipes/recipes.component");
+var forms_1 = require("@angular/forms");
+var dropdown_directive_1 = require("./shared/dropdown.directive");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -30,10 +32,12 @@ var AppModule = /** @class */ (function () {
                 recipe_item_component_1.RecipeItemComponent,
                 recipe_detail_component_1.RecipeDetailComponent,
                 header_component_1.HeaderComponent,
-                recipes_component_1.RecipesComponent
+                recipes_component_1.RecipesComponent,
+                dropdown_directive_1.DropdownDirective
             ],
             imports: [
-                platform_browser_1.BrowserModule
+                platform_browser_1.BrowserModule,
+                forms_1.FormsModule
             ],
             schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA],
             providers: [],

@@ -18,6 +18,9 @@ var ShoppingListComponent = /** @class */ (function () {
     }
     ShoppingListComponent.prototype.ngOnInit = function () {
     };
+    ShoppingListComponent.prototype.onIngredientAdded = function (ingredient) {
+        this.ingredients.push(ingredient);
+    };
     ShoppingListComponent = __decorate([
         core_1.Component({
             selector: 'app-shopping-list',

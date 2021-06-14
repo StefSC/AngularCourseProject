@@ -6,27 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.HeaderComponent = void 0;
+exports.AppComponent = void 0;
 var core_1 = require("@angular/core");
-var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
-        this.featureSelected = new core_1.EventEmitter();
+var AppComponent = /** @class */ (function () {
+    function AppComponent() {
+        this.loadedFeature = 'recipe';
     }
-    HeaderComponent.prototype.ngOnInit = function () {
+    AppComponent.prototype.onNavigate = function (feature) {
+        this.loadedFeature = feature;
     };
-    HeaderComponent.prototype.onSelect = function (feature) {
-        this.featureSelected.emit(feature);
-    };
-    __decorate([
-        core_1.Output()
-    ], HeaderComponent.prototype, "featureSelected");
-    HeaderComponent = __decorate([
+    AppComponent = __decorate([
         core_1.Component({
-            selector: 'app-header',
-            templateUrl: './header.component.html',
-            styleUrls: ['./header.component.css']
+            selector: 'app-root',
+            templateUrl: './app.component.html',
+            styleUrls: ['./app.component.css']
         })
-    ], HeaderComponent);
-    return HeaderComponent;
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.HeaderComponent = HeaderComponent;
+exports.AppComponent = AppComponent;
