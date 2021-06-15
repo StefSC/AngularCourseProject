@@ -9,19 +9,16 @@ exports.__esModule = true;
 exports.RecipeItemComponent = void 0;
 var core_1 = require("@angular/core");
 var RecipeItemComponent = /** @class */ (function () {
-    function RecipeItemComponent() {
-        this.recipeSelected = new core_1.EventEmitter();
+    function RecipeItemComponent(recipeService) {
+        this.recipeService = recipeService;
     }
     RecipeItemComponent.prototype.ngOnInit = function () { };
     RecipeItemComponent.prototype.onSelected = function () {
-        this.recipeSelected.emit();
+        this.recipeService.recipeSelected.emit(this.recipe);
     };
     __decorate([
         core_1.Input()
     ], RecipeItemComponent.prototype, "recipe");
-    __decorate([
-        core_1.Output()
-    ], RecipeItemComponent.prototype, "recipeSelected");
     RecipeItemComponent = __decorate([
         core_1.Component({
             selector: 'app-recipe-item',

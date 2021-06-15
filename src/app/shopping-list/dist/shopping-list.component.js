@@ -8,18 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.ShoppingListComponent = void 0;
 var core_1 = require("@angular/core");
-var ingredient_model_1 = require("../shared/ingredient.model");
 var ShoppingListComponent = /** @class */ (function () {
-    function ShoppingListComponent() {
-        this.ingredients = [
-            new ingredient_model_1.Ingredient('Apples', 5),
-            new ingredient_model_1.Ingredient('Tomatos', 3)
-        ];
+    function ShoppingListComponent(shoppingListService) {
+        this.shoppingListService = shoppingListService;
     }
     ShoppingListComponent.prototype.ngOnInit = function () {
-    };
-    ShoppingListComponent.prototype.onIngredientAdded = function (ingredient) {
-        this.ingredients.push(ingredient);
+        var _this = this;
+        this.ingredients = this.shoppingListService.getIngredients();
+        this.shoppingListService.ingredientsChanged.subscribe(function (ingredients) {
+            _this.ingredients = ingredients;
+        });
     };
     ShoppingListComponent = __decorate([
         core_1.Component({

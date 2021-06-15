@@ -9,9 +9,13 @@ exports.__esModule = true;
 exports.RecipeDetailComponent = void 0;
 var core_1 = require("@angular/core");
 var RecipeDetailComponent = /** @class */ (function () {
-    function RecipeDetailComponent() {
+    function RecipeDetailComponent(recipeService) {
+        this.recipeService = recipeService;
     }
     RecipeDetailComponent.prototype.ngOnInit = function () {
+    };
+    RecipeDetailComponent.prototype.addToShoppingList = function () {
+        this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
     };
     __decorate([
         core_1.Input()

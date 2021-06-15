@@ -19,6 +19,7 @@ var header_component_1 = require("./header/header.component");
 var recipes_component_1 = require("./recipes/recipes.component");
 var forms_1 = require("@angular/forms");
 var dropdown_directive_1 = require("./shared/dropdown.directive");
+var shopping_list_service_1 = require("./shopping-list/shopping-list.service");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -40,7 +41,7 @@ var AppModule = /** @class */ (function () {
                 forms_1.FormsModule
             ],
             schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA],
-            providers: [],
+            providers: [shopping_list_service_1.ShoppingListService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

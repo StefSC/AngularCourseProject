@@ -10,14 +10,13 @@ exports.ShoppingListEditComponent = void 0;
 var core_1 = require("@angular/core");
 var ingredient_model_1 = require("src/app/shared/ingredient.model");
 var ShoppingListEditComponent = /** @class */ (function () {
-    function ShoppingListEditComponent() {
-        this.ingredientAdded = new core_1.EventEmitter();
+    function ShoppingListEditComponent(shoppingListService) {
+        this.shoppingListService = shoppingListService;
     }
     ShoppingListEditComponent.prototype.ngOnInit = function () {
     };
     ShoppingListEditComponent.prototype.onAddItem = function () {
-        var newIngredient = new ingredient_model_1.Ingredient(this.nameInputRef.nativeElement.value, this.amountInputRef.nativeElement.value);
-        this.ingredientAdded.emit(newIngredient);
+        this.shoppingListService.addIngredient(new ingredient_model_1.Ingredient(this.nameInputRef.nativeElement.value, this.amountInputRef.nativeElement.value));
     };
     __decorate([
         core_1.ViewChild('nameInput', { static: false })
@@ -25,9 +24,6 @@ var ShoppingListEditComponent = /** @class */ (function () {
     __decorate([
         core_1.ViewChild('amountInput', { static: false })
     ], ShoppingListEditComponent.prototype, "amountInputRef");
-    __decorate([
-        core_1.Output()
-    ], ShoppingListEditComponent.prototype, "ingredientAdded");
     ShoppingListEditComponent = __decorate([
         core_1.Component({
             selector: 'app-shopping-list-edit',

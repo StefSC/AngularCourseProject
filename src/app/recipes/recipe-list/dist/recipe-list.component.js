@@ -8,23 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.RecipeListComponent = void 0;
 var core_1 = require("@angular/core");
-var recipe_model_1 = require("../recipe.model");
 var RecipeListComponent = /** @class */ (function () {
-    function RecipeListComponent() {
-        this.recipeWasSelected = new core_1.EventEmitter();
-        this.recipes = [
-            new recipe_model_1.Recipe('A test recipe', 'this is a test', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=960,872'),
-            new recipe_model_1.Recipe('Another  test recipe', 'this is a test', 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=960,872')
-        ];
+    function RecipeListComponent(recipeService) {
+        this.recipeService = recipeService;
     }
     RecipeListComponent.prototype.ngOnInit = function () {
+        this.recipes = this.recipeService.getRecipes();
     };
-    RecipeListComponent.prototype.onRecipeSelected = function (recipe) {
-        this.recipeWasSelected.emit(recipe);
-    };
-    __decorate([
-        core_1.Output()
-    ], RecipeListComponent.prototype, "recipeWasSelected");
     RecipeListComponent = __decorate([
         core_1.Component({
             selector: 'app-recipe-list',
